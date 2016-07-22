@@ -1,11 +1,21 @@
 
-<div class="bankid">
-  <img src="ember-cli-bankid/bankid_vector_rgb.svg" alt="BankID logotype" class="bankid-img">
+  {{#if state}}
+    <div class="{{state}} bankid-img"></div>
+  {{else}}
+    <img src="ember-cli-bankid/bankid_vector_rgb.svg" alt="BankID logotype" class="bankid-img">
+  {{/if}}
+
   <div class="action-area">
     <div class="bankid-text"><p>Signering</p></div>
-    <div class="bankid-buttonarea">
-      <button class="auth-sign">BankID på denna enhet</button>
-      <button class="auth-sign inverted">BankID på annan enhet</button>
+    <div class="bankid-buttonarea  {{if requestPersonalNumber 'input'}}">
+      {{#if chooseMethod}}
+        <button {{action 'setMethod' 'self'}} class="auth-sign">BankID på denna enhet</button>
+        <button {{action 'setMethod' 'api'}} class="auth-sign inverted">BankID på annan enhet</button>
+      {{/if}}
+
+      {{#if requestPersonalNumber}}
+        <input class="auth-sign" placeholder="ÅÅÅÅMMDDXXXX" pattern="\d{12}" type="tel">
+        <button class="auth-sign inverted">Skicka</button>
+      {{/if}}
     </div>
-    </div>
-</div>
+  </div>

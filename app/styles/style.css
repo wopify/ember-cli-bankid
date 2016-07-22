@@ -52,13 +52,13 @@ button.auth-sign:hover{
 }
 
 
-.loading-circle, .denied{
+.loading, .denied{
   margin: 65px;/*80+2x65 is the same width as the image*/
   width: 80px;
   height: 80px;
 }
 
-.loading-circle{
+.loading{
   border-radius: 50%;
   box-shadow: 0 3px 0 0.3px #225971;
   animation: rotation 1s cubic-bezier(.52,.39,.81,.5) infinite;
