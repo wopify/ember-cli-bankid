@@ -1,6 +1,24 @@
 # Ember-cli-bankid
 
-This README outlines the details of collaborating on this Ember addon.
+This Ember Addon adds a front end component for BankID. This addon does not send a request to the BankID API directly. You have the option to manually implement your own API, or provide a URL for an API that uses `node-bankid`
+`
+
+##How to use
+
+```
+{{bank-id
+mode= 'sign'||'auth'
+personalNumber=200003123928 //String length 12 with only digits. Any other case will invalidate the form. Only required if BankID is not installed on this unit.
+lang='sv'||'en' //Only applicable if calling to a node-bankid backend.
+text=String //Used for displaying messages to the user. Usually displays text which is returned from the API request.
+state='loading'||'failed'||'success' //Used to determine symbol to display. Updated based on API response
+RPURL=//URL to your node-bankid backend
+callBankID=action //Action hook, called when the component sends requests to the server. Can be used to implement your own API calls.
+nodeBankID=bool //Flag wheter or not to use the node-bankid backend.
+}}
+
+
+```
 
 ## Installation
 
