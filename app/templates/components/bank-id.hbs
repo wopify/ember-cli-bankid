@@ -14,8 +14,10 @@
       {{/if}}
 
       {{#if requestPersonalNumber}}
-        <input class="auth-sign" placeholder="ÅÅÅÅMMDDXXXX" pattern="\d{12}" type="tel">
-        <button class="auth-sign inverted">Skicka</button>
+
+
+        {{input value=value class="auth-sign" placeholder="ÅÅÅÅMMDDXXXX" pattern="\d{12}" type="tel"}}
+        <button {{action 'updatePersonalNumber' value}} class="auth-sign inverted">Skicka</button>
       {{/if}}
     </div>
   </div>

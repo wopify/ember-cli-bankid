@@ -20,12 +20,16 @@ export default Ember.Component.extend({
 
 
   actions: {
-    setPersonalNumber(personalNumber){
+    updatePersonalNumber(personalNumber){
+      console.log("HEYEYY");
+      this.set('requestPersonalNumber', false);
+      this.set("personalNumber", personalNumber);
+      console.log(this.get('personalNumber'));
+      this.send('initRequest');
     },
     initRequest(){
-
+      console.log('initRequest');
       if(this.get('nodeBankID')){
-    console.log(this.get('requestPersonalNumber'));
         if(!this.get('personalNumber')){
           this.set('requestPersonalNumber', true);
 
