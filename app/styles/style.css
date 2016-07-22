@@ -1,0 +1,96 @@
+.bankid{
+  font-family: sans-serif;
+  font-size: 16px;
+  position: relative;
+}
+
+.bankid-img{
+  width: 200px;
+}
+
+.action-area{
+  margin: auto;
+  width: 70%;
+}
+
+.bankid-img, .action-area{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+button.auth-sign{
+  background-color: #469CBE;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.2s cubic-bezier(.52,.39,.81,.5);
+  margin: 2px;
+}
+
+.input input{
+  padding: 9px;
+  margin-right: -6px;
+}
+
+.input button.auth-sign{
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.auth-sign.inverted{
+  background-color: white;
+  color: #469CBE;
+  border: 1px solid #469CBE;
+}
+
+button.auth-sign:hover{
+  background-color: #225971;
+  color: white;
+  cursor: pointer;
+}
+
+
+.loading-circle, .denied{
+  margin: 65px;/*80+2x65 is the same width as the image*/
+  width: 80px;
+  height: 80px;
+}
+
+.loading-circle{
+  border-radius: 50%;
+  box-shadow: 0 3px 0 0.3px #225971;
+  animation: rotation 1s cubic-bezier(.52,.39,.81,.5) infinite;
+}
+
+.denied{
+  position: relative;
+  transform: rotate(45deg);
+}
+.denied:before, .denied:after{
+  content: '';
+  position: absolute;
+  background-color: #469CBE;
+  z-index: -1;
+  }
+
+.denied:before{
+  height:10%;
+  width: 100%;
+  top: 45%;
+}
+.denied:after{
+  width: 10%;
+  height: 100%;
+  left: 45%;
+}
+
+@keyframes rotation{
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
