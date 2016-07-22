@@ -5,7 +5,7 @@ This Ember Addon adds a front end component for BankID. This addon does not send
 
 ##How to use
 
-```
+```javascript
 {{bank-id
 mode= 'sign'||'auth'
 personalNumber=200003123928 //String length 12 with only digits. Any other case will invalidate the form. Only required if BankID is not installed on this unit.
