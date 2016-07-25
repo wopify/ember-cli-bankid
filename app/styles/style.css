@@ -52,7 +52,7 @@ button.auth-sign:hover{
 }
 
 
-.loading, .denied{
+.loading, .denied, .success{
   margin: 65px;/*80+2x65 is the same width as the image*/
   width: 80px;
   height: 80px;
@@ -64,11 +64,11 @@ button.auth-sign:hover{
   animation: rotation 1s cubic-bezier(.52,.39,.81,.5) infinite;
 }
 
-.denied{
+.denied, .success{
   position: relative;
   transform: rotate(45deg);
 }
-.denied:before, .denied:after{
+.denied:before, .denied:after, .success:before, .success:after{
   content: '';
   position: absolute;
   background-color: #469CBE;
@@ -84,6 +84,22 @@ button.auth-sign:hover{
   width: 10%;
   height: 100%;
   left: 45%;
+}
+
+
+.success:before{
+  height: 100%;
+  width: 10%;
+  right: 40%;
+  background-color: green;
+}
+
+.success:after{
+  width: 50%;
+  height: 10%;
+  bottom: 0;
+  right: 40%;
+  background-color: green;
 }
 
 @keyframes rotation{
