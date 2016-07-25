@@ -6,7 +6,7 @@
   {{/if}}
 
   <div class="action-area">
-    <div class="bankid-text"><p>Signering</p></div>
+    <div class="bankid-text">{{text}}</div>
     <div class="bankid-buttonarea  {{if requestPersonalNumber 'input'}}">
       {{#if chooseMethod}}
         <button {{action 'setMethod' 'self'}} class="auth-sign">BankID på denna enhet</button>

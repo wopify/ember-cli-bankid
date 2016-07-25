@@ -1,7 +1,23 @@
 <h2 id="title">Welcome to Ember</h2>
-{{bank-id}}
+<p>
+  Fully functional
+</p>
+{{bank-id
+  text=responseText
+callBankID=(action 'testCallAction' 'thisParameter')
+state=requestState
+}}
 
+<p>
+  Loading state
+</p>
 {{bank-id state="loading"}}
+<p>
+  Denied state
+</p>
 {{bank-id state="denied"}}
+<p>
+  Success state
+</p>
 {{bank-id state="success"}}
 {{outlet}}

@@ -18,32 +18,27 @@ export default Ember.Component.extend({
 
 
 
-
   actions: {
     updatePersonalNumber(personalNumber){
-      console.log("HEYEYY");
       this.set('requestPersonalNumber', false);
       this.set("personalNumber", personalNumber);
-      console.log(this.get('personalNumber'));
       this.send('initRequest');
     },
     initRequest(){
+      this.set('chooseMethod', false);
       console.log('initRequest');
-      if(this.get('nodeBankID')){
-        if(!this.get('personalNumber')){
-          this.set('requestPersonalNumber', true);
-
-          return;
-        }
-
-
+      if(!this.get('personalNumber')){
+        this.set('requestPersonalNumber', true);
+        this.set('text', 'Fyll i ditt personnummer:');
+        return;
+      }
 
       this.set('state', 'loading');
 
+
 //Makeexternal request here
-      }else{
-        this.sendAction('callBankID');
-      }
+
+      this.sendAction('callBankID');
 
       //TODO create request for node-bankid backend
     },
@@ -52,9 +47,10 @@ export default Ember.Component.extend({
     setMethod(method){
 
       if(method ==='self'){
-        window.location.replace("bankid://");
+        console.log("BankID launched");
+        location.assign("bankid:///");
+        this.send('initRequest');
       }else if(method === 'api'){
-        this.set('chooseMethod', false);
         this.send('initRequest');
       }
 
